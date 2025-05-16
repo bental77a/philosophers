@@ -1,0 +1,34 @@
+```
+philosophers/
+│
+├── Makefile               # Build and compilation instructions
+├── README.md              # Project documentation
+│
+├── include/               # Header files
+│   ├── philo.h            # Main header with struct definitions
+│   ├── errors.h           # Error handling definitions
+│   └── constants.h        # Project-wide constants
+│
+├── src/                   # Source files
+│   ├── main.c             # Entry point of the program
+│   │
+│   ├── core/              # Core simulation logic
+│   │   ├── init.c         # Simulation initialization
+│   │   ├── routine.c      # Philosopher thread routine
+│   │   └── monitor.c      # Monitoring thread logic
+│   │
+│   ├── utils/             # Utility functions
+│   │   ├── time.c         # Time-related utilities
+│   │   ├── print.c        # Safe printing functions
+│   │   └── cleanup.c      # Resource cleanup functions
+│   │
+│   ├── validation/        # Input validation
+│   │   ├── args.c         # Argument parsing and validation
+│   │   └── input_check.c  # Additional input checks
+│   │
+│   └── error/             # Error handling
+│       ├── error_msg.c    # Error message definitions
+│       └── error_handler.c# Error handling functions
+│
+└── obj/                   # Compiled object files (git ignored)
+```
