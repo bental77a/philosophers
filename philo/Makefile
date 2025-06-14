@@ -1,6 +1,7 @@
 NAME = philosophers
 
-SRC_FILES = main.c parsing.c utils.c
+SRC_FILES = main.c parcing.c utils.c \
+			init.c monitoring.c routine.c 
 
 OBJ = $(SRC_FILES:.c=.o)
 
