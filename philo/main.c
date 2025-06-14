@@ -6,9 +6,9 @@ int main(char ac, char **av)
 
     t_table table;
     //set table 0
-    memset(&table, 0, sizeof(t_table));
+    ft_memset(&table, 0, sizeof(t_table));
     //parse input
-    if (valid_args(av,ac) != 0)
+    if (!valid_args(av,ac))
         printf("arguments it's not be valid!!\n");
     //init table (mutex and philos)
     if (!init_table(&table, av, ac))
@@ -24,6 +24,6 @@ int main(char ac, char **av)
         cleanup_table(&table);
         return 1;
     }
-    cleanup_table(&table)
+    cleanup_table(&table);
     
 }

@@ -91,6 +91,5 @@ int valid_args(char **av, int ac)
             return 0;
         }
     }
-    
     return 1;
 }
