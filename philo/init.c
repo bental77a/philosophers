@@ -25,19 +25,59 @@ int init_mutex(t_table *table)
 {
     int i;
 
+    // ✅ ALLOCATE MEMORY FOR FORKS ARRAY FIRST!
+    table->forks = malloc(sizeof(pthread_mutex_t) * table->args->number_of_philosophers);
+    if (!table->forks)
+        return 0;
+
     i = 0;
     while (i < table->args->number_of_philosophers)
     {
         if (pthread_mutex_init(&table->forks[i], NULL) != 0)
+        {
+            while (--i >= 0)
+                pthread_mutex_destroy(&table->forks[i]);
+            free(table->forks);
             return 0;
+        }
         i++;
     }
     if (pthread_mutex_init(&table->write_mutex, NULL) != 0)
+    {
+        i = 0;
+        while (i < table->args->number_of_philosophers)
+        {
+            pthread_mutex_destroy(&table->forks[i]);
+            i++;
+        }
+        free(table->forks);
         return 0;
+    }
     if (pthread_mutex_init(&table->death_mutex, NULL) != 0)
+    {
+        pthread_mutex_destroy(&table->write_mutex);
+        i = 0;
+        while (i < table->args->number_of_philosophers)
+        {
+            pthread_mutex_destroy(&table->forks[i]);
+            i++;
+        }
+        free(table->forks);
         return 0;
+    }
     if (pthread_mutex_init(&table->meal_mutex, NULL) != 0)
+    {
+        pthread_mutex_destroy(&table->death_mutex);
+        pthread_mutex_destroy(&table->write_mutex);
+        i = 0;
+        while (i < table->args->number_of_philosophers)
+        {
+            pthread_mutex_destroy(&table->forks[i]);
+            i++;
+        }
+        free(table->forks);
         return 0;
+    }
     return 1;
 }
 
@@ -62,4 +102,5 @@ int init_table(t_table *table, char **av, int ac)
         return 0;
     if (!init_philos(table))
         return 0;
+    return (1);
 }

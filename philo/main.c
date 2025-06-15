@@ -1,7 +1,7 @@
 #include "philo.h"
 
 
-int main(char ac, char **av)
+int main(int ac, char **av)
 {
 
     t_table table;
@@ -9,7 +9,10 @@ int main(char ac, char **av)
     ft_memset(&table, 0, sizeof(t_table));
     //parse input
     if (!valid_args(av,ac))
+    {
         printf("arguments it's not be valid!!\n");
+        return (0);
+    }
     //init table (mutex and philos)
     if (!init_table(&table, av, ac))
     {
@@ -17,6 +20,7 @@ int main(char ac, char **av)
         cleanup_table(&table);//clean all of things
         return (1);
     }
+    printf("here\n");
     //simulation
     if (!start_simulation(&table))
     {

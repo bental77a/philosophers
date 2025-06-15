@@ -61,6 +61,7 @@ int valid_args(char **av, int ac);
 int init_table(t_table *table, char **av, int ac);
 long get_current_time(void);
 void cleanup_table(t_table *table);
+void cleanup_fork_mutexes(t_table *table);
 void print_status(t_philo *philo, char *status);
 void ft_usleep(long time_in_ms);
 void *philo_routine(void *arg);
