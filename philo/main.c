@@ -20,7 +20,6 @@ int main(int ac, char **av)
         cleanup_table(&table);//clean all of things
         return (1);
     }
-    printf("here\n");
     //simulation
     if (!start_simulation(&table))
     {
@@ -29,5 +28,4 @@ int main(int ac, char **av)
         return 1;
     }
     cleanup_table(&table);
-    
 }

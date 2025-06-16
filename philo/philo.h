@@ -69,4 +69,11 @@ int start_simulation(t_table *table);
 void	*ft_memset(void *b, int c, size_t len);
 int ft_atoi(const char *str);
 
+
+//free_mutex
+
+void fourth_destroy(t_table *table);
+void thread_destroy(t_table *table);
+void second_destroy(t_table *table);
+void first_destroy(int i, t_table *table);
 #endif
