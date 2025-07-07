@@ -1,4 +1,4 @@
-NAME = philosophers
+NAME = philo
 
 SRC_FILES = main.c parcing.c utils.c \
 			init.c monitoring.c routine.c destroy.c
@@ -6,7 +6,7 @@ SRC_FILES = main.c parcing.c utils.c \
 OBJ = $(SRC_FILES:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread #-g3 #-fsanitize=address 
+CFLAGS = -Wall -Wextra -Werror -pthread -g3 -fsanitize=thread 
 
 all: $(NAME)
 
