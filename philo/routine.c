@@ -6,7 +6,7 @@
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 07:21:48 by mohben-t          #+#    #+#             */
-/*   Updated: 2025/07/04 04:49:06 by mohben-t         ###   ########.fr       */
+/*   Updated: 2025/07/08 11:16:50 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,26 @@ void	philo_sleep(t_philo *philo)
 	print_status(philo, "is sleeping");
 	ft_usleep(philo->table->args->time_to_sleep,philo);
 }
+static void	philo_think(t_philo *philo)
+{
+	long	time_since_meal;
+	long	time_left;
+	long	think_time;
 
+	if (philo->table->args->number_of_philosophers % 2)
+	{
+		pthread_mutex_lock(&philo->table->death_mutex);
+		time_since_meal = get_current_time() - philo->last_meal_time;
+		time_left = philo->table->args->time_to_die - time_since_meal;
+		pthread_mutex_unlock(&philo->table->death_mutex);
+		if (time_left > 0)
+		{
+			think_time = (long)(time_left * 0.9);
+			if (think_time > 0)
+				ft_usleep(think_time, philo);
+		}
+	}
+}
 void	think(t_philo *philo)
 {
 	print_status(philo, "is thinking");
@@ -75,7 +94,29 @@ void	*philo_routine(void *arg)
 		pthread_mutex_unlock(&philo->table->death_mutex);
 		eat(philo);
 		philo_sleep(philo);
+		philo_think(philo);
 		think(philo);
 	}
 	return (NULL);
 }
+/*
+static void	philo_think(t_philos *philo)
+{
+	long	time_since_meal;
+	long	time_left;
+	long	think_time;
+
+	if (philo->data->number_of_philosophers % 2)
+	{
+		pthread_mutex_lock(philo->data->death_mutex);
+		time_since_meal = get_current_time() - philo->last_meal_time;
+		time_left = philo->data->time_to_die - time_since_meal;
+		pthread_mutex_unlock(philo->data->death_mutex);
+		if (time_left > 0)
+		{
+			think_time = (long)(time_left * 0.9);
+			if (think_time > 0)
+				ft_usleep(think_time, philo);
+		}
+	}
+}*/

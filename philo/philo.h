@@ -6,7 +6,7 @@
 /*   By: mohben-t <mohben-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 07:24:37 by mohben-t          #+#    #+#             */
-/*   Updated: 2025/07/04 06:18:36 by mohben-t         ###   ########.fr       */
+/*   Updated: 2025/07/08 11:12:24 by mohben-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_philo
 	size_t			last_meal_time;
 	pthread_t		thread;
 	struct s_table	*table;
+	struct s_philo_arg *philo_arg;
 }					t_philo;
 
 typedef struct s_table

@@ -6,7 +6,7 @@ SRC_FILES = main.c parcing.c utils.c \
 OBJ = $(SRC_FILES:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread -g3 -fsanitize=thread 
+CFLAGS = -Wall -Wextra -Werror -pthread #-g3 -fsanitize=thread 
 
 all: $(NAME)
 
