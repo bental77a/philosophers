@@ -9,8 +9,6 @@
 	<h2> Score </h2>	
 	<img alt="100" style="width: 100px;height: 70px" src="https://github.com/simon-zerisenay/simon-zerisenay/blob/main/100.png"/>
 </label> 
-# Dining Problem
-
 ## Introduction
 Welcome to the Dining Problem project! This project is part of the curriculum at 42 and focuses on solving the classic dining problem using threads and synchronization techniques. The dining problem is a fundamental synchronization challenge in computer science that illustrates resource sharing and deadlock avoidance.
 
