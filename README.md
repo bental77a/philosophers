@@ -9,15 +9,14 @@
 	<h2> Score </h2>	
 	<img alt="100" style="width: 100px;height: 70px" src="https://github.com/simon-zerisenay/simon-zerisenay/blob/main/100.png"/>
 </label> 
+<h2>Introduction</h2>
 <p align="center">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/simon-zerisenay/42_Philosophers?color=lightblue" />
 	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/simon-zerisenay/42_Philosophers?color=critical" />
 	<img alt="Code language count" src="https://img.shields.io/github/languages/count/simon-zerisenay/42_Philosophers?color=yellow" />
 	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/simon-zerisenay/42_Philosophers?color=blue" /> 
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/simon-zerisenay/42_Philosophers?color=green" />
-</p> 
-## introduction
-<br>
+</p>  
 Welcome to the Dining Problem project! This project is part of the curriculum at 42 and focuses on solving the classic dining problem using threads and synchronization techniques. The dining problem is a fundamental synchronization challenge in computer science that illustrates resource sharing and deadlock avoidance.
 
 ## Objective
